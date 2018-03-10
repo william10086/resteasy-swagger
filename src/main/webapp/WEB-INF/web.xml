@@ -12,6 +12,12 @@
     </context-param>
 
     <servlet>
+        <servlet-name>SwaggerBootstrap</servlet-name>
+        <servlet-class>com.william.support.SwaggerBootstrap</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <!--
+    <servlet>
         <servlet-name>Jersey2Config</servlet-name>
         <servlet-class>io.swagger.jaxrs.config.DefaultJaxrsConfig</servlet-class>
         <init-param>
@@ -23,7 +29,8 @@
             <param-value>http://localhost:8282/resteasy</param-value>
         </init-param>
         <load-on-startup>2</load-on-startup>
-    </servlet>
+    </servlet>-->
+
 
     <!--No necessary to do anything when use Use a servlet 3.0 container and the ResteasyServletInitializer-->
     <!--
