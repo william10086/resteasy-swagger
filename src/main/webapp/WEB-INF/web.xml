@@ -6,6 +6,25 @@
 
 	<display-name>resteasy-swagger</display-name>
 
+    <context-param>
+        <param-name>resteasy.scan</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>Jersey2Config</servlet-name>
+        <servlet-class>io.swagger.jaxrs.config.DefaultJaxrsConfig</servlet-class>
+        <init-param>
+            <param-name>api.version</param-name>
+            <param-value>1.0.0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>swagger.api.basepath</param-name>
+            <param-value>http://localhost:8282/resteasy</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
     <!--No necessary to do anything when use Use a servlet 3.0 container and the ResteasyServletInitializer-->
     <!--
     <context-param>
@@ -26,10 +45,10 @@
 		<servlet-class>
 			org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
 		</servlet-class>
-		&lt;!&ndash;<init-param>
+		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
 			<param-value>com.william.OrdersApplication</param-value>
-		</init-param>&ndash;&gt;
+		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Resteasy</servlet-name>

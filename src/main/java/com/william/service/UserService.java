@@ -12,12 +12,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 /**
  * @author: william
  * Date: 2018-03-10
  * Time: 上午10:58
  * Description: com.william.service
  */
+@Api(value = "userservice", description = "用户接口")
 @Path("userservice") // 服务路径
 public class UserService {
     /**
@@ -37,6 +41,7 @@ public class UserService {
     /**
      * 获取指定id的用户
      */
+    @ApiOperation(nickname = "user/{}", value = "查询某个用户", notes = "返回查询对象")
     @GET
     @Path("user/{id}") // 具体服务的路径, id是入参
     @Produces("application/json") // 返回的格式
@@ -50,6 +55,7 @@ public class UserService {
     @GET
     @Path("users")
     @Produces("application/json")
+    @ApiOperation(nickname = "users", value = "查询所有", notes = "返回查询对象")
     public List<User> getUsers() {
         List<User> userList = new ArrayList<>();
         for (Map.Entry<Integer, User> user : userMap.entrySet()) {
